@@ -65,6 +65,7 @@ $conn->close();
     <meta charset="UTF-8">
     <title>Editar Produto</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="imgnew/20241104_012926303_iOS-removebg-preview.png" />
     <style>
         
       

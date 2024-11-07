@@ -7,6 +7,7 @@ session_start();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="imgnew/20241104_012926303_iOS-removebg-preview.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -55,7 +56,6 @@ session_start();
   <a href="google_oauth.php" class="icon"><i class="fa-brands fa-google"></i></a>
   <a href="facebook_oauth.php" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
   <a href="github_oauth.php" class="icon"><i class="fa-brands fa-github"></i></a>
-  <a href="linkedin_oauth.php" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
 </div>
 
           <span>ou utilize seu email para registrar-se</span>
@@ -80,7 +80,7 @@ session_start();
   <a href="google_oauth.php" class="icon"><i class="fa-brands fa-google"></i></a>
   <a href="facebook_oauth.php" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
   <a href="github_oauth.php" class="icon"><i class="fa-brands fa-github"></i></a>
-  <a href="linkedin_oauth.php" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+  
 </div>
 
           <span>ou utilize seu email e senha</span>

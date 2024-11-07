@@ -76,6 +76,7 @@ $produtos = $conn->query("SELECT * FROM produtos");
         }
     </style>
 </head>
+<link rel="icon" type="image/png" href="imgnew/20241104_012926303_iOS-removebg-preview.png" />
 <body>
 
 <div class="container-fluid">

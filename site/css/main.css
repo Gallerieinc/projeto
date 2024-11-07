@@ -253,7 +253,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .right-top-bar a:hover {
-  color: #6c7ae0;
+  color: #159A9C;
 }
 
 
@@ -1258,9 +1258,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   transition: all 0.4s;
 }
 
-.wrap-slick1:hover .arrow-slick1 {
-  opacity: 1;
-}
+
 
 .arrow-slick1:hover {
   color: #002333;
@@ -2014,7 +2012,7 @@ input.num-product::-webkit-inner-spin-button {
 
 /*---------------------------------------------*/
 .block1-txt:hover {
-  background-color: rgba(103,117,214,0.8);
+  background-color: rgba(21, 154, 156, 0.8);
 }
 
 .block1-txt:hover .block1-txt-child2 {
@@ -2855,7 +2853,7 @@ input.num-product::-webkit-inner-spin-button {
   position: absolute;
   width: 0%;
   height: 2px;
-  background-color: #6774d5;
+  background-color: #159A9C;
   left: 0;
   bottom: -2px;
 }
