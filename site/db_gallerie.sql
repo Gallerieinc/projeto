@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/11/2024 às 05:29
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Generation Time: Nov 07, 2024 at 01:05 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `db_gallerie`
+-- Database: `db_gallerie`
 --
 CREATE DATABASE IF NOT EXISTS `db_gallerie` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `db_gallerie`;
@@ -26,7 +26,7 @@ USE `db_gallerie`;
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `audit_log`
+-- Table structure for table `audit_log`
 --
 
 CREATE TABLE `audit_log` (
@@ -40,7 +40,7 @@ CREATE TABLE `audit_log` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `avaliacoes`
+-- Table structure for table `avaliacoes`
 --
 
 CREATE TABLE `avaliacoes` (
@@ -55,7 +55,7 @@ CREATE TABLE `avaliacoes` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `carrinho_compra`
+-- Table structure for table `carrinho_compra`
 --
 
 CREATE TABLE `carrinho_compra` (
@@ -69,7 +69,7 @@ CREATE TABLE `carrinho_compra` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -80,7 +80,7 @@ CREATE TABLE `categorias` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `enderecos`
+-- Table structure for table `enderecos`
 --
 
 CREATE TABLE `enderecos` (
@@ -95,7 +95,7 @@ CREATE TABLE `enderecos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `funcionarios`
+-- Table structure for table `funcionarios`
 --
 
 CREATE TABLE `funcionarios` (
@@ -111,7 +111,7 @@ CREATE TABLE `funcionarios` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `lojas`
+-- Table structure for table `lojas`
 --
 
 CREATE TABLE `lojas` (
@@ -125,7 +125,7 @@ CREATE TABLE `lojas` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `pagamentos`
+-- Table structure for table `pagamentos`
 --
 
 CREATE TABLE `pagamentos` (
@@ -139,7 +139,7 @@ CREATE TABLE `pagamentos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `pedidos`
+-- Table structure for table `pedidos`
 --
 
 CREATE TABLE `pedidos` (
@@ -154,7 +154,7 @@ CREATE TABLE `pedidos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `produtos`
+-- Table structure for table `produtos`
 --
 
 CREATE TABLE `produtos` (
@@ -173,26 +173,23 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `produtos`
+-- Dumping data for table `produtos`
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `descricao`, `preco`, `marca`, `tamanho`, `categoria`, `estoque`, `id_loja`, `id_funcionario`, `id_categoria`, `imagem`) VALUES
-(3, 'Blusa ', 'Blusa de frio de lã com capô', 149.99, 'Marca C', 'G', 'Roupas', 20, 1, 1, 3, 'uploads/imagem_2024-11-06_211527248.png'),
-(4, 'Vestido Floral', 'Vestido feminino floral, ideal para ocasiões informais', 120.00, 'Marca D', 'M', 'Roupas', 15, 1, 1, 4, NULL),
-(5, 'Saia Longa', 'Saia longa de tecido leve e confortável', 79.90, 'Marca E', 'G', 'Roupas', 25, 1, 1, 4, NULL),
-(6, 'Jaqueta de Couro', 'Jaqueta de couro sintético, modelo slim fit', 250.00, 'Marca F', 'P', 'Roupas', 10, 1, 1, 3, NULL),
-(7, 'Tênis Esportivo', 'Tênis esportivo para caminhada e corrida', 199.99, 'Marca G', '41', 'Calçados', 40, 1, 1, 5, NULL),
-(8, 'Bermuda Masculina', 'Bermuda masculina casual, ideal para o verão', 59.90, 'Marca H', 'M', 'Roupas', 60, 1, 1, 2, NULL),
-(9, 'Blusa Polo', 'Blusa polo de algodão, disponível em várias cores', 89.90, 'Marca I', 'P', 'Roupas', 35, 1, 1, 1, NULL),
-(10, 'Sutiã Confortável', 'Sutiã feminino de tecido confortável, com alças ajustáveis', 39.90, 'Marca J', 'P', 'Roupas', 100, 1, 1, 6, NULL),
-(11, 'Shorts Feminino', 'Shorts feminino em denim, ideal para o verão', 49.90, 'Marca K', 'M', 'Roupas', 45, 1, 1, 4, 'uploads/calça.jpg'),
-(12, 'Calça Jeans', 'calça preta básica', 199.90, 'Calvin Klein', 'XL', 'Roupas', 3, NULL, NULL, NULL, 'calça.jpg'),
-(13, 'Moletom', 'Moletom preto com capuz', 200.00, 'Montserrat', 'G', 'Roupas', 50, NULL, NULL, NULL, 'uploads/blusa.jpg');
+(3, 'Blusa ', 'Blusa de frio de lÃ£ com capuz', '149.99', 'Marca C', 'G', 'Roupas', 20, 1, 1, 3, 'uploads/imagem_2024-11-06_211527248.png'),
+(4, 'taffeta midi dress', 'Vestido de bolinhas de alta costura para ocasiÃµes formais.', '7965.00', 'Self-portrait', 'M', 'Roupas', 15, 1, 1, 4, 'uploads/vestido.jpg'),
+(5, 'Saia Longa', 'Saia longa de tecido leve.', '499.00', 'Olympiah', 'G', 'Roupas', 25, 1, 1, 4, 'uploads/saia.jpg'),
+(6, 'Short', 'Beach Wear', '250.00', 'Boss', 'P', 'Roupas', 10, 1, 1, 3, 'uploads/short.jpg'),
+(7, 'TÃªnis Esportivo', 'TÃªnis esportivo para caminhada e corrida', '199.99', 'Marca G', '41', 'Calï¿½ados', 40, 1, 1, 5, 'uploads/tenis.jpg'),
+(9, 'Blusa Polo', 'Blusa polo de algodÃ£o', '89.90', 'Marca I', 'P', 'Roupas', 35, 1, 1, 1, 'uploads/polo.jpg'),
+(11, 'Shorts Feminino', 'Shorts feminino em denim, ideal para o verÃ£o', '49.90', 'Marca K', 'M', 'Roupas', 45, 1, 1, 4, 'uploads/shortfem.jpg'),
+(12, 'CalÃ§a Jeans', 'calÃ§a bÃ¡sica', '199.90', 'Calvin Klein', 'XL', 'Roupas', 3, NULL, NULL, NULL, 'uploads/jeans.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -205,7 +202,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipo_usuario`, `data_cadastro`) VALUES
@@ -226,148 +223,148 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `tipo_usuario`, `data_ca
 (16, 'Ariana Grande', 'arianagrande@gmail.com', '$2y$10$km3cteA9ZJGNbW5ymDuiaObIMfT84fWgCTL68MfyZVIxxo.npld/W', 'cliente', '2024-11-06 16:06:05'),
 (18, 'Ariel', 'ariel@gmail.com', '$2y$10$snOjKxVKYgOaKz7YgtRhBeH9XeSmx97/qtsJ.Bs6GlR/LQcHqnPJS', 'cliente', '2024-11-06 16:17:12'),
 (19, 'Maria', 'maria@gmail.com', '$2y$10$sB/9MFgrh1dnI27giyJ24.ded2P.T5IV85P.hE8Bli2XmBvkhyjTG', 'cliente', '2024-11-06 16:20:42'),
-(20, 'Ryllary Victória', 'ryllary@gmail.com', '$2y$10$tieOiuhtXXmUQ09qtKbhIeTXojgRxtr2OD/FCCHHskevMbraeWWI6', 'administrador', '2024-11-06 16:23:30'),
+(20, 'Ryllary VictÃ³ria', 'ryllary@gmail.com', '$2y$10$tieOiuhtXXmUQ09qtKbhIeTXojgRxtr2OD/FCCHHskevMbraeWWI6', 'administrador', '2024-11-06 16:23:30'),
 (22, 'Lucas', 'luscas@gmail.com', '$2y$10$hS5i1EzUJdej5iLPKZSgDOKgmC.u9hjvQPetMmJtCTIMB.DHZcWYW', 'administrador', '2024-11-06 16:48:55'),
-(23, 'Natasha Caldeirão', 'natashacald@gmail.com', '$2y$10$Lb6Ha9XOtRe9EDup7R26o.6axR4L296HB21Ru.1AIUuEpJAt4hb2G', 'administrador', '2024-11-06 18:16:12');
+(23, 'Natasha CaldeirÃ£o', 'natashacald@gmail.com', '$2y$10$Lb6Ha9XOtRe9EDup7R26o.6axR4L296HB21Ru.1AIUuEpJAt4hb2G', 'administrador', '2024-11-06 18:16:12');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices de tabela `audit_log`
+-- Indexes for table `audit_log`
 --
 ALTER TABLE `audit_log`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `avaliacoes`
+-- Indexes for table `avaliacoes`
 --
 ALTER TABLE `avaliacoes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `carrinho_compra`
+-- Indexes for table `carrinho_compra`
 --
 ALTER TABLE `carrinho_compra`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `enderecos`
+-- Indexes for table `enderecos`
 --
 ALTER TABLE `enderecos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `funcionarios`
+-- Indexes for table `funcionarios`
 --
 ALTER TABLE `funcionarios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Índices de tabela `lojas`
+-- Indexes for table `lojas`
 --
 ALTER TABLE `lojas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `pagamentos`
+-- Indexes for table `pagamentos`
 --
 ALTER TABLE `pagamentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `pedidos`
+-- Indexes for table `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `produtos`
+-- Indexes for table `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `audit_log`
+-- AUTO_INCREMENT for table `audit_log`
 --
 ALTER TABLE `audit_log`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `avaliacoes`
+-- AUTO_INCREMENT for table `avaliacoes`
 --
 ALTER TABLE `avaliacoes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `carrinho_compra`
+-- AUTO_INCREMENT for table `carrinho_compra`
 --
 ALTER TABLE `carrinho_compra`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `enderecos`
+-- AUTO_INCREMENT for table `enderecos`
 --
 ALTER TABLE `enderecos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `funcionarios`
+-- AUTO_INCREMENT for table `funcionarios`
 --
 ALTER TABLE `funcionarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `lojas`
+-- AUTO_INCREMENT for table `lojas`
 --
 ALTER TABLE `lojas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `pagamentos`
+-- AUTO_INCREMENT for table `pagamentos`
 --
 ALTER TABLE `pagamentos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `pedidos`
+-- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `produtos`
+-- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;

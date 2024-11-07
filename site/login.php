@@ -52,15 +52,12 @@ session_start();
         <form action="processa_register.php" method="POST">
           <h1>Criar Conta</h1>
           <div class="social-icons">
-            <a href="#" class="icon"
-              ><i class="fa-brands fa-google-plus-g"></i
-            ></a>
-            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="icon"
-              ><i class="fa-brands fa-linkedin-in"></i
-            ></a>
-          </div>
+  <a href="google_oauth.php" class="icon"><i class="fa-brands fa-google"></i></a>
+  <a href="facebook_oauth.php" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+  <a href="github_oauth.php" class="icon"><i class="fa-brands fa-github"></i></a>
+  <a href="linkedin_oauth.php" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+</div>
+
           <span>ou utilize seu email para registrar-se</span>
           <input type="text" name="name" placeholder="Nome" required />
           <input type="email" name="email" placeholder="Email" required />
@@ -80,15 +77,12 @@ session_start();
         <form action="processa_login.php" method="POST">
           <h1>Login</h1>
           <div class="social-icons">
-            <a href="#" class="icon"
-              ><i class="fa-brands fa-google-plus-g"></i
-            ></a>
-            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="icon"
-              ><i class="fa-brands fa-linkedin-in"></i
-            ></a>
-          </div>
+  <a href="google_oauth.php" class="icon"><i class="fa-brands fa-google"></i></a>
+  <a href="facebook_oauth.php" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+  <a href="github_oauth.php" class="icon"><i class="fa-brands fa-github"></i></a>
+  <a href="linkedin_oauth.php" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+</div>
+
           <span>ou utilize seu email e senha</span>
           <input type="email" name="email" placeholder="Email" required />
           <input type="password" name="password" placeholder="Senha" required />

@@ -203,7 +203,7 @@ $produtos = $conn->query("SELECT * FROM produtos");
                             <td>{$produto['tamanho']}</td>
                             <td>{$produto['categoria']}</td>
                             <td>{$produto['estoque']}</td>
-                            <td><img src='uploads/{$produto['imagem']}' width='100' height='100'></td> <!-- Exibe a imagem -->
+                            <td><img src='{$produto['imagem']}' width='100' height='100'></td> <!-- Exibe a imagem -->
                             <td>
                                 <a href='editar_produto.php?id={$produto['id']}' class='btn btn-primary'>Editar</a>
                                 <a href='deletar_produto.php?id={$produto['id']}' class='btn btn-danger' onclick='return confirm(\"Tem certeza que deseja excluir?\")'>Excluir</a>
