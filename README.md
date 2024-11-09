@@ -5,6 +5,9 @@
      <li>Feche o app e mova a pasta "site" para c://xampp/htdocs e coloque lá.</li>
      <li>Verifique se o xampp está ligado com o Apache e o MySql.</li>
     <li>No xampp, clique em "Admin".</li>
+    <li>Ao entrar no PhpMyAdmin, importe o banco de dados chamado "db_gallerie" localizado na pasta site.</li>
+    <li>Por fim, digite no seu navegador de preferência "localhost/site".</li>
+    <li>Faça login para ter acesso a todas as funcionalidades do site e divirta-se!</li>
   </ul>
 </div>
 
