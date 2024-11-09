@@ -1,5 +1,7 @@
 # Como funciona?
 <div>
+  <h2>Aos professores: operações CRUD na página dashboard. Acesse pelo email: taylorswift13@gmail.com e senha: 1234.</h2>
+  ## <h2>Para acessar o site registre e efetue login.</h2>
   <ul>
     <li>Clone o repositório no Visual Studio Code.</li>
      <li>Feche o app e mova a pasta "site" para c://xampp/htdocs e coloque lá.</li>
