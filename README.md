@@ -1,5 +1,12 @@
 # Como funciona?
-
+<div>
+  <ul>
+    <li>Clone o repositório no Visual Studio Code.</li>
+     <li>Feche o app e mova a pasta "site" para c://xampp/htdocs e coloque lá.</li>
+     <li>Verifique se o xampp está ligado com o Apache e o MySql.</li>
+    <li>No xampp, clique em "Admin".</li>
+  </ul>
+</div>
 
 <div>
   <h1>GallerieInc Store</h1>
