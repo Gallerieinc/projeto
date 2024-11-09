@@ -830,7 +830,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .sidebar {
   position: fixed;
   z-index: 1100;
-  width: 390px;
+  width: 350px;
   max-width: calc(100% - 30px);
   height: 100vh;
   top: 0;
@@ -1213,6 +1213,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  
 }
 
 .rs1-slick1 .item-slick1 {
@@ -1318,6 +1319,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 .slick1-dots li img {
   width: 100%;
+  border-radius: 5px;
 }
 
 .caption-dots-slick1 {
@@ -1348,6 +1350,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
   opacity: 0;
+  border-radius: 5px;
 }
 
 .slick1-dots li:hover .caption-dots-slick1 {
@@ -1494,10 +1497,12 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 .slick3-dot-overlay:hover {
   border-color: #ccc;
+  
 }
 
 .slick3-dots .slick-active .slick3-dot-overlay {
   border-color: #ccc;
+  
 }
 
 
@@ -1981,6 +1986,7 @@ input.num-product::-webkit-inner-spin-button {
 .block1 {
   position: relative;
   border: 1px solid #e6e6e6;
+  
 }
 
 .block1-txt {
@@ -2013,6 +2019,7 @@ input.num-product::-webkit-inner-spin-button {
 /*---------------------------------------------*/
 .block1-txt:hover {
   background-color: rgba(21, 154, 156, 0.8);
+ 
 }
 
 .block1-txt:hover .block1-txt-child2 {
@@ -2040,6 +2047,7 @@ input.num-product::-webkit-inner-spin-button {
 [ Block2 ]*/
 .block2-pic {
   position: relative;
+  border-radius: 10px;
 }
 
 .block2-btn {
@@ -3328,3 +3336,66 @@ input.num-product::-webkit-inner-spin-button {
   }
 
 }
+
+.container-form {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  width: 100%;
+}
+
+.container-banner {
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 95%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2.2rem;
+  margin-top: 2rem;
+}
+
+.round-box {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 95%;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-dash {
+  height: 80%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  background-color: #f8f9fa;
+  padding-top: 20px;
+}
+
+.sidebar-dash .nav-item {
+  padding: 10px;
+}
+
+.table-section {
+  display: none; /* Esconde todas as seções por padrão */
+}
+
+/* Adiciona um pouco de espaço no topo do conteúdo */
+main {
+  margin-left: 270px;
+  padding: 20px;
+}
+
+
+.btn-primary{
+  width: 75px;
+  margin-bottom: 5px;
+}
+

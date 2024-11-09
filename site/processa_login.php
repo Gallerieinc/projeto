@@ -1,14 +1,13 @@
 <?php
-// Configurações do banco de dados
+session_start(); // Inicia a sessão no início do arquivo
+
+// Conexão com o banco de dados
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "db_gallerie";
-
-// Cria a conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verifica a conexão
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
@@ -19,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['password'];
 
     // Prepara a consulta SQL
-    $sql = "SELECT senha, tipo_usuario FROM usuarios WHERE email = ?";
+    $sql = "SELECT senha, tipo_usuario, nome, id FROM usuarios WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -27,22 +26,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verifica se o email existe
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($senha_hash, $tipo_usuario);
+        // Bind corretamente as variáveis de acordo com as colunas selecionadas
+        $stmt->bind_result($senha_hash, $tipo_usuario, $nome, $id);
         $stmt->fetch();
 
         // Verifica se a senha está correta
         if (password_verify($senha, $senha_hash)) {
-            session_start();
+            // Armazena informações na sessão
             $_SESSION['email'] = $email;
             $_SESSION['tipo_usuario'] = $tipo_usuario;
+            $_SESSION['nome'] = $nome; // Salva o nome do usuário na sessão
+            $_SESSION['usuario_id'] = $id; // Salva o ID do usuário na sessão
 
             // Redireciona com base no tipo de usuário
             if ($tipo_usuario === 'administrador') {
                 header("Location: dashboard.php"); // Página do administrador
             } else {
-                header("Location: index.html"); // Página do cliente
+                header("Location: index.php"); // Página do cliente
             }
-            exit; // Importante para parar a execução do código após o redirecionamento
+            exit; // Para garantir que o código não continue executando após o redirecionamento
         } else {
             echo "Senha incorreta.";
         }
@@ -56,4 +58,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Fecha a conexão
 $conn->close();
 ?>
-

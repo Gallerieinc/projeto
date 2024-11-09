@@ -23,12 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Senha criptografada
+    $genero = $_POST['genero'];
     $tipo_usuario = $_POST['tipo_usuario'];
+    
 
     // Adiciona o novo usuário no banco de dados
-    $sql = "INSERT INTO usuarios (nome, email, senha, tipo_usuario) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO usuarios (nome, email, senha, genero, tipo_usuario) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $nome, $email, $senha, $tipo_usuario);
+    $stmt->bind_param("sssss", $nome, $email, $senha, $genero, $tipo_usuario);
 
     if ($stmt->execute()) {
         header("Location: dashboard.php");
@@ -65,6 +67,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label for="senha">Senha</label>
             <input type="password" class="form-control" id="senha" name="senha" required>
         </div>
+        <div class="form-group">
+    <label for="genero">Sexo</label>
+    <select class="form-control" id="genero" name="genero" required>
+        <option value="Feminino">Feminino</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Prefiro não dizer">Prefiro não dizer</option>
+    </select>
+</div>
+
         <div class="form-group">
             <label for="tipo_usuario">Tipo de Usuário</label>
             <select class="form-control" id="tipo_usuario" name="tipo_usuario" required>

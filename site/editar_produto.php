@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 
 // Verifica se o ID do produto foi fornecido
-if (isset($_GET['id'])) {
+if (isset($_GET['id'])) { 
     $id = $_GET['id'];
     
     // Consulta para obter os dados do produto
