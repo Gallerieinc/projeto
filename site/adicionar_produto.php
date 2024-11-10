@@ -21,6 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $categoria = $_POST['categoria'];
     $estoque = $_POST['estoque'];
 
+
+
     // Processa a imagem
     $imagem = $_FILES['imagem']['name'];
     $imagem_tmp = $_FILES['imagem']['tmp_name'];
@@ -49,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
     <link rel="icon" type="image/png" href="imgnew/20241104_012926303_iOS-removebg-preview.png" />
 </head>
+
 <body>
 
     <div class="container">
@@ -66,44 +70,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php endif; ?>
 
         <form action="adicionar_produto.php" method="POST" enctype="multipart/form-data">
-    <div class="form-group mb-3">
-        <label for="nome" class="form-label">Nome</label>
-        <input type="text" class="form-control" id="nome" name="nome" required>
-    </div>
-    <div class="form-group mb-3">
-        <label for="descricao" class="form-label">Descrição</label>
-        <input type="text" class="form-control" id="descricao" name="descricao" required>
-    </div>
-    <div class="form-group mb-3">
-        <label for="preco" class="form-label">Preço</label>
-        <input type="number" class="form-control" id="preco" name="preco" step="0.01" required>
-    </div>
-    <div class="form-group mb-3">
-        <label for="marca" class="form-label">Marca</label>
-        <input type="text" class="form-control" id="marca" name="marca" required>
-    </div>
-    <div class="form-group mb-3">
-        <label for="tamanho" class="form-label">Tamanho</label>
-        <input type="text" class="form-control" id="tamanho" name="tamanho" required>
-    </div>
-    <div class="form-group mb-3">
-        <label for="categoria" class="form-label">Categoria</label>
-        <input type="text" class="form-control" id="categoria" name="categoria" required>
-    </div>
-    <div class="form-group mb-3">
-        <label for="estoque" class="form-label">Estoque</label>
-        <input type="number" class="form-control" id="estoque" name="estoque" required>
-    </div>
-    <div class="form-group mb-3">
-        <label for="imagem" class="form-label">Imagem</label>
-        <input type="file" class="form-control" id="imagem" name="imagem" accept="image/*" required>
-    </div>
-    <button type="submit" class="btn btn-success mb-5">Adicionar Produto</button>
-    <a href="dashboard.php" class="btn btn-secondary mb-5">Cancelar</a>
-</form>
+            <div class="form-group mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="descricao" class="form-label">Descrição</label>
+                <input type="text" class="form-control" id="descricao" name="descricao" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="preco" class="form-label">Preço</label>
+                <input type="number" class="form-control" id="preco" name="preco" step="0.01" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" class="form-control" id="marca" name="marca" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="tamanho" class="form-label">Tamanho</label>
+                <input type="text" class="form-control" id="tamanho" name="tamanho" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="categoria" class="form-label">Categoria</label>
+                <input type="text" class="form-control" id="categoria" name="categoria" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="estoque" class="form-label">Estoque</label>
+                <input type="number" class="form-control" id="estoque" name="estoque" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="imagem">Imagem do Produto</label>
+                <input type="file" class="form-control-file" id="imagem" name="imagem">
+                <?php if (!empty($produto['imagem'])): ?>
+                    <p>Imagem atual: <img src="<?php echo $produto['imagem']; ?>" alt="Imagem do Produto"
+                            style="width: 100px;"></p>
+                <?php endif; ?>
+            </div>
+            <button type="submit" class="btn btn-success mb-5">Adicionar Produto</button>
+            <a href="dashboard.php" class="btn btn-secondary mb-5">Cancelar</a>
+        </form>
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

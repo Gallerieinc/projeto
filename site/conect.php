@@ -6,11 +6,9 @@ $db_password = "";
 $dbname = "db_gallerie";
 
 // Conectando ao servidor (sem selecionar banco)
-$conn = new mysqli($servername, $db_username, $db_password);
+$conn = new mysqli('localhost', 'root', '', 'db_gallerie'); // Substitua 'usuario' e 'senha' pelas credenciais corretas.
 
-// Verificando a conexão
 if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
+    die("Erro na conexão: " . $conn->connect_error);
 }
 
-// Criando o banco de dados se ele não

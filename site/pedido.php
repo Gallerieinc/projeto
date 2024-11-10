@@ -10,6 +10,9 @@ if (!isset($_SESSION['usuario_id'])) {
 
 $usuario_id = $_SESSION['usuario_id']; // ID do usuário logado
 
+$query = "SELECT * FROM pedidos WHERE id_usuario = '$usuario_id' ORDER BY data_pedido DESC";
+$result = mysqli_query($conn, $query);
+
 // Selecionar o banco de dados
 mysqli_select_db($conn, 'db_gallerie');
 
@@ -99,6 +102,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 }
+
+// Obter os pedidos do usuário
+$query_pedidos = "SELECT p.id, p.data_pedido, p.status FROM pedidos p 
+                  WHERE p.id_usuario = '$usuario_id' ORDER BY p.data_pedido DESC";
+$result_pedidos = mysqli_query($conn, $query_pedidos);
+
+// while ($pedido = mysqli_fetch_assoc($result_pedidos)) {
+//     echo "<h4>Pedido #" . $pedido['id'] . " - " . $pedido['status'] . "</h4>";
+//     echo "<p>Data do pedido: " . date('d/m/Y H:i', strtotime($pedido['data_pedido'])) . "</p>";
+
+//     // Obter os itens do pedido
+//     $query_itens = "SELECT pi.quantidade, pi.preco, p.nome FROM pedidos_itens pi 
+//                     INNER JOIN produtos p ON pi.id_produto = p.id 
+//                     WHERE pi.id_pedido = '" . $pedido['id'] . "'";
+//     $result_itens = mysqli_query($conn, $query_itens);
+
+//     echo "<table class='table'>";
+//     echo "<thead><tr><th>Produto</th><th>Quantidade</th><th>Preço</th></tr></thead><tbody>";
+
+//     while ($item = mysqli_fetch_assoc($result_itens)) {
+//         echo "<tr>";
+//         echo "<td>" . $item['nome'] . "</td>";
+//         echo "<td>" . $item['quantidade'] . "</td>";
+//         echo "<td>" . number_format($item['preco'], 2, ',', '.') . "</td>";
+//         echo "</tr>";
+//     }
+
+//     echo "</tbody></table>";
+// }
 ?>
 
 
@@ -106,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="pt-br">
 
 <head>
-    <title>Perfil</title>
+    <title>Pedidos</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -190,10 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <!-- Icon header -->
                     <div class="wrap-icon-header flex-w flex-r-m">
 
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-                            data-notify="2">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
+
 
                     </div>
                 </nav>
@@ -209,19 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <!-- Icon header -->
             <div class="wrap-icon-header flex-w flex-r-m m-r-15">
-                <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-                    <i class="zmdi zmdi-search"></i>
-                </div>
 
-                <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-                    data-notify="2">
-                    <i class="zmdi zmdi-shopping-cart"></i>
-                </div>
-
-                <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
-                    data-notify="0">
-                    <i class="zmdi zmdi-favorite-outline"></i>
-                </a>
             </div>
 
             <!-- Button show menu -->
@@ -280,12 +297,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </header>
 
 
-
     <!-- Title page -->
     <section class="bg-img1 txt-center p-lr-15 p-tb-92 container-banner"
         style="background: linear-gradient(to right, #159A9C, #002333)">
         <h2 class="ltext-105 cl0 txt-center">
-            Perfil
+            Pedidos
         </h2>
     </section>
 
@@ -295,42 +311,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="container">
             <div class="flex-w flex-tr container-form">
                 <!-- Formulário de Conta -->
+                <!-- Formulário de Conta -->
                 <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+                    <h4 class="mtext-105 cl2 p-b-30">Seus pedidos</h4>
 
-                    <h4 class="mtext-105 cl2 p-b-30">
-                        Sua conta
-                    </h4>
-
-                    <!-- Nome do Usuário -->
-                    <h3 class="mtext-106 cl2 p-b-10">
-                        Nome completo
-                    </h3>
-                    <div class="bor8 m-b-20 how-pos4-parent">
-                        <h3 class="m-t-15 m-b-15 p-l-20 stext-106"><?= htmlspecialchars($user['nome']) ?></h3>
-                    </div>
-
-                    <!-- Email do Usuário -->
-                    <h3 class="mtext-106 cl2 p-b-10">
-                        Email
-                    </h3>
-                    <div class="bor8 m-b-20 how-pos4-parent">
-                        <h3 class="m-t-15 m-b-15 p-l-20 stext-106"><?= htmlspecialchars($user['email']) ?></h3>
-                    </div>
-
-                    <!-- Sexo do Usuário -->
-                    <h3 class="mtext-106 cl2 p-b-10">
-                        Sexo
-                    </h3>
-                    <div class="bor8 m-b-20 how-pos4-parent">
-                        <h3 class="m-t-15 m-b-15 p-l-20 stext-106"><?= htmlspecialchars($user['genero']) ?></h3>
-                    </div>
-
-                    <button href="logout.php"
-                        class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        <a href="logout.php" style="color:aliceblue">Sair</a>
-                    </button>
-
-
+                    <?php if (mysqli_num_rows($result) > 0): ?>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Status</th>
+                                    <th>Data do Pedido</th>
+                                    <th>Detalhes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while ($pedido = mysqli_fetch_assoc($result)): ?>
+                                    <tr>
+                                        <td><?= $pedido['id'] ?></td>
+                                        <td><?= htmlspecialchars($pedido['status']) ?></td>
+                                        <td><?= date("d/m/Y H:i", strtotime($pedido['data_pedido'])) ?></td>
+                                        <td><a href="detalhes_pedido.php?id=<?= $pedido['id'] ?>">Ver Detalhes</a></td>
+                                    </tr>
+                                <?php endwhile; ?>
+                            </tbody>
+                        </table>
+                    <?php else: ?>
+                        <p>Você ainda não fez nenhum pedido.</p>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Lado Direito: Endereço e Imagem de Perfil -->

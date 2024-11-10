@@ -70,7 +70,7 @@ $conn->close();
       <div class="wrap-menu-desktop">
         <nav class="limiter-menu-desktop p-l-45">
           <!-- Logo desktop -->
-          <a href="#" class="logo">
+          <a href="login.php" class="logo">
             <img src="imgnew/20241104_012926303_iOS-removebg-preview.png" alt="IMG-LOGO" />
           </a>
 
@@ -78,11 +78,11 @@ $conn->close();
           <div class="menu-desktop">
             <ul class="main-menu">
               <li>
-                <a href="home-03.html">Início</a>
+                <a href="index.php">Início</a>
               </li>
 
               <li>
-                <a href="product.html">Compre</a>
+                <a href="#produtos">Compre</a>
               </li>
 
               <li>
@@ -98,7 +98,7 @@ $conn->close();
           <!-- Icon header -->
           <div class="wrap-icon-header flex-w flex-r-m h-full">
             <div class="flex-c-m h-full p-r-25 bor6">
-              <div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
+              <div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11  js-show-cart">
                 <i class="zmdi zmdi-shopping-cart"></i>
               </div>
             </div>
@@ -141,12 +141,12 @@ $conn->close();
     <div class="menu-mobile">
       <ul class="main-menu-m">
         <li>
-          <a href="index.html">Início</a>
+          <a href="index.php">Início</a>
           </span>
         </li>
 
         <li>
-          <a href="product.html">Compre</a>
+          <a href="#produtos">Compre</a>
         </li>
 
         <li>
@@ -159,6 +159,10 @@ $conn->close();
 
         <li>
           <a href="profile.php">Minha Conta</a>
+        </li>
+
+        <li>
+          <a href="logout.php">Sair</a>
         </li>
       </ul>
     </div>
@@ -187,12 +191,6 @@ $conn->close();
             </a>
           </li>
 
-          <li class="p-b-13">
-            <a href="#" class="stext-102 cl2 hov-cl1 trans-04">
-              Favoritos
-            </a>
-          </li>
-
 
           <li class="p-b-13">
             <a href="profile.php" class="stext-102 cl2 hov-cl1 trans-04">Minha Conta</a>
@@ -200,89 +198,80 @@ $conn->close();
           <li class="p-b-13">
             <a href="logout.php" class="stext-102 cl2 hov-cl1 trans-04">Sair</a>
           </li>
-          <li class="p-b-13">
-            <a href="#" class="stext-102 cl2 hov-cl1 trans-04"> Pedidos </a>
+          <a href="pedido.php" class="stext-102 cl2 hov-cl1 trans-04"> Pedidos </a>
           </li>
 
-          <li class="p-b-13">
-            <a href="#" class="stext-102 cl2 hov-cl1 trans-04"> Reembolso </a>
-          </li>
+          <div class="sidebar-gallery w-full p-tb-30">
+            <span class="mtext-101 cl5"> @ GallerieInc </span>
 
-          <li class="p-b-13">
-            <a href="#" class="stext-102 cl2 hov-cl1 trans-04"> Ajuda </a>
-          </li>
-        </ul>
+            <div class="flex-w flex-sb p-t-36 gallery-lb">
+              <!-- item gallery sidebar -->
+              <div class="wrap-item-gallery m-b-10">
+                <a class="item-gallery bg-img1" href="images/gallery-01.png" data-lightbox="gallery"
+                  style="background-image: url('images/gallery-01.png')"></a>
+              </div>
 
-        <div class="sidebar-gallery w-full p-tb-30">
-          <span class="mtext-101 cl5"> @ GallerieInc </span>
+              <!-- item gallery sidebar -->
+              <div class="wrap-item-gallery m-b-10">
+                <a class="item-gallery bg-img1" href="images/g2.jpg" data-lightbox="gallery"
+                  style="background-image: url('images/g2.jpg')"></a>
+              </div>
 
-          <div class="flex-w flex-sb p-t-36 gallery-lb">
-            <!-- item gallery sidebar -->
-            <div class="wrap-item-gallery m-b-10">
-              <a class="item-gallery bg-img1" href="images/gallery-01.png" data-lightbox="gallery"
-                style="background-image: url('images/gallery-01.png')"></a>
-            </div>
+              <!-- item gallery sidebar -->
+              <div class="wrap-item-gallery m-b-10">
+                <a class="item-gallery bg-img1" href="images/g3.png" data-lightbox="gallery"
+                  style="background-image: url('images/g3.png')"></a>
+              </div>
 
-            <!-- item gallery sidebar -->
-            <div class="wrap-item-gallery m-b-10">
-              <a class="item-gallery bg-img1" href="images/g2.jpg" data-lightbox="gallery"
-                style="background-image: url('images/g2.jpg')"></a>
-            </div>
+              <!-- item gallery sidebar -->
+              <div class="wrap-item-gallery m-b-10">
+                <a class="item-gallery bg-img1" href="images/g4.jpg" data-lightbox="gallery"
+                  style="background-image: url('images/g4.jpg')"></a>
+              </div>
 
-            <!-- item gallery sidebar -->
-            <div class="wrap-item-gallery m-b-10">
-              <a class="item-gallery bg-img1" href="images/g3.png" data-lightbox="gallery"
-                style="background-image: url('images/g3.png')"></a>
-            </div>
+              <!-- item gallery sidebar -->
+              <div class="wrap-item-gallery m-b-10">
+                <a class="item-gallery bg-img1" href="images/g5.jpg" data-lightbox="gallery"
+                  style="background-image: url('images/g5.jpg')"></a>
+              </div>
 
-            <!-- item gallery sidebar -->
-            <div class="wrap-item-gallery m-b-10">
-              <a class="item-gallery bg-img1" href="images/g4.jpg" data-lightbox="gallery"
-                style="background-image: url('images/g4.jpg')"></a>
-            </div>
+              <!-- item gallery sidebar -->
+              <div class="wrap-item-gallery m-b-10">
+                <a class="item-gallery bg-img1" href="images/g6.jpg" data-lightbox="gallery"
+                  style="background-image: url('images/g6.jpg')"></a>
+              </div>
 
-            <!-- item gallery sidebar -->
-            <div class="wrap-item-gallery m-b-10">
-              <a class="item-gallery bg-img1" href="images/g5.jpg" data-lightbox="gallery"
-                style="background-image: url('images/g5.jpg')"></a>
-            </div>
+              <!-- item gallery sidebar -->
+              <div class="wrap-item-gallery m-b-10">
+                <a class="item-gallery bg-img1" href="images/g7.jpg" data-lightbox="gallery"
+                  style="background-image: url('images/g7.jpg')"></a>
+              </div>
 
-            <!-- item gallery sidebar -->
-            <div class="wrap-item-gallery m-b-10">
-              <a class="item-gallery bg-img1" href="images/g6.jpg" data-lightbox="gallery"
-                style="background-image: url('images/g6.jpg')"></a>
-            </div>
+              <!-- item gallery sidebar -->
+              <div class="wrap-item-gallery m-b-10">
+                <a class="item-gallery bg-img1" href="images/g8.webp" data-lightbox="gallery"
+                  style="background-image: url('images/g8.webp')"></a>
+              </div>
 
-            <!-- item gallery sidebar -->
-            <div class="wrap-item-gallery m-b-10">
-              <a class="item-gallery bg-img1" href="images/g7.jpg" data-lightbox="gallery"
-                style="background-image: url('images/g7.jpg')"></a>
-            </div>
-
-            <!-- item gallery sidebar -->
-            <div class="wrap-item-gallery m-b-10">
-              <a class="item-gallery bg-img1" href="images/g8.webp" data-lightbox="gallery"
-                style="background-image: url('images/g8.webp')"></a>
-            </div>
-
-            <!-- item gallery sidebar -->
-            <div class="wrap-item-gallery m-b-10">
-              <a class="item-gallery bg-img1" href="images/g8.jpeg" data-lightbox="gallery"
-                style="background-image: url('images/g8.jpeg')"></a>
+              <!-- item gallery sidebar -->
+              <div class="wrap-item-gallery m-b-10">
+                <a class="item-gallery bg-img1" href="images/g8.jpeg" data-lightbox="gallery"
+                  style="background-image: url('images/g8.jpeg')"></a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="sidebar-gallery w-full">
-          <span class="mtext-101 cl5"> Sobre </span>
+          <div class="sidebar-gallery w-full">
+            <span class="mtext-101 cl5"> Sobre </span>
 
-          <p class="stext-108 cl6 p-t-27">
-            Com sede em São Paulo, a Gallerie se consolidou ao longo dos anos como uma plataforma de referência para os
-            amantes da moda de luxo, trazendo as últimas coleções das mais renomadas casas de design internacional e
-            marcas emergentes de alto nível. Acreditamos que a moda não é apenas sobre roupas, mas sobre expressão,
-            identidade e cultura.
-          </p>
-        </div>
+            <p class="stext-108 cl6 p-t-27">
+              Com sede em São Paulo, a Gallerie se consolidou ao longo dos anos como uma plataforma de referência para
+              os
+              amantes da moda de luxo, trazendo as últimas coleções das mais renomadas casas de design internacional e
+              marcas emergentes de alto nível. Acreditamos que a moda não é apenas sobre roupas, mas sobre expressão,
+              identidade e cultura.
+            </p>
+          </div>
       </div>
     </div>
   </aside>
@@ -295,75 +284,100 @@ $conn->close();
     <div class="header-cart flex-col-l p-l-65 p-r-25">
       <div class="header-cart-title flex-w flex-sb-m p-b-8">
         <span class="mtext-103 cl2">Carrinho</span>
-
         <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
           <i class="zmdi zmdi-close"></i>
         </div>
       </div>
 
       <div class="header-cart-content flex-w js-pscroll">
-        <ul class="header-cart-wrapitem w-full">
-          <li class="header-cart-item flex-w flex-t m-b-12">
-            <div class="header-cart-item-img">
-              <img src="images/item-cart-01.jpg" alt="IMG" />
-            </div>
-
-            <div class="header-cart-item-txt p-t-8">
-              <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                White Shirt Pleat
-              </a>
-
-              <span class="header-cart-item-info"> 1 x $19.00 </span>
-            </div>
-          </li>
-
-          <li class="header-cart-item flex-w flex-t m-b-12">
-            <div class="header-cart-item-img">
-              <img src="images/item-cart-02.jpg" alt="IMG" />
-            </div>
-
-            <div class="header-cart-item-txt p-t-8">
-              <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                Converse All Star
-              </a>
-
-              <span class="header-cart-item-info"> 1 x $39.00 </span>
-            </div>
-          </li>
-
-          <li class="header-cart-item flex-w flex-t m-b-12">
-            <div class="header-cart-item-img">
-              <img src="images/item-cart-03.jpg" alt="IMG" />
-            </div>
-
-            <div class="header-cart-item-txt p-t-8">
-              <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                Nixon Porter Leather
-              </a>
-
-              <span class="header-cart-item-info"> 1 x $17.00 </span>
-            </div>
-          </li>
+        <ul class="header-cart-wrapitem w-full" id="carrinho-list">
+          <!-- Aqui os itens do carrinho serão inseridos via AJAX -->
         </ul>
 
-        <div class="w-full">
-          <div class="header-cart-total w-full p-tb-40">Total: $75.00</div>
 
-          <div class="header-cart-buttons flex-w w-full">
-            <a href="shoping-cart.html"
-              class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-              Ver carrinho
-            </a>
 
-            <a href="shoping-cart.html"
-              class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-              Finalizar compra
-            </a>
-          </div>
+        <div class="header-cart-buttons flex-w w-full">
+          <a href="shoping-cart.php"
+            class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+            Ver carrinho
+          </a>
+          <a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+            Finalizar compra
+          </a>
         </div>
       </div>
     </div>
   </div>
+  </div>
+
+
+  <script>
+    function adicionarAoCarrinho(idProduto) {
+      $.ajax({
+        url: 'add_to_cart.php',
+        type: 'POST',
+        data: { id_produto: idProduto },
+        success: function (response) {
+          $('.header-cart-wrapitem').html(response);
+        }
+      });
+    }
+    $(document).ready(function () {
+      // Carregar o carrinho imediatamente ao carregar a página
+      carregarCarrinho();
+
+      // Evento de clique no botão "adicionar ao carrinho"
+      $('.add-to-cart').click(function () {
+        var id_produto = $(this).data('id');  // Obtém o ID do produto
+        $.ajax({
+          url: 'add_to_cart.php',  // Processa a adição do produto ao carrinho
+          type: 'POST',
+          data: { id_produto: id_produto },
+          success: function () {
+            carregarCarrinho();  // Atualiza o carrinho após adicionar um item
+          },
+          error: function () {
+            alert('Erro ao adicionar o produto ao carrinho.');
+          }
+        });
+      });
+    });
+
+    // Função para carregar os itens do carrinho via AJAX
+    function carregarCarrinho() {
+      $.ajax({
+        url: 'carregar_carrinho.php',  // Arquivo PHP que carrega os itens do carrinho
+        type: 'GET',
+        success: function (response) {
+          console.log(response); // Adiciona um log da resposta para depuração
+          $('#cart-items-list').html(response);  // Preenche o contêiner com os itens
+        },
+
+        error: function () {
+          alert('Erro ao carregar o carrinho.');
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      // Enviar carrinho via AJAX ao clicar em Finalizar Compra
+      $('#finalizar-compra').click(function () {
+        $.ajax({
+          url: 'carrinho_ajax.php', // O arquivo que vai lidar com o carrinho
+          type: 'POST',
+          data: { carrinho: JSON.stringify(carrinho) }, // Envia o carrinho em formato JSON
+          success: function (response) {
+            // Redirecionar para a página de carrinho
+            window.location.href = 'shopping-cart.php';
+          },
+          error: function () {
+            alert('Erro ao enviar carrinho para o servidor.');
+          }
+        });
+      });
+    });
+
+  </script>
 
   <!-- Slider -->
   <section class="section-slide">
@@ -386,7 +400,7 @@ $conn->close();
               </div>
 
               <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                <a href="#produtos" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
                   Compre agora
                 </a>
               </div>
@@ -411,7 +425,7 @@ $conn->close();
               </div>
 
               <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                <a href="#produtos" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
                   Compre agora
                 </a>
               </div>
@@ -436,7 +450,7 @@ $conn->close();
               </div>
 
               <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                <a href="#produtos" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
                   Compre agora
                 </a>
               </div>
@@ -458,7 +472,7 @@ $conn->close();
           <div class="block1 wrap-pic-w round-box">
             <img src="images/banner-04.jpg" alt="IMG-BANNER" />
 
-            <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+            <a href="#produtos" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
               <div class="block1-txt-child1 flex-col-l">
                 <span class="block1-name ltext-102 trans-04 p-b-8">
                   Mulher
@@ -483,7 +497,7 @@ $conn->close();
           <div class="block1 wrap-pic-w round-box">
             <img src="images/banner-05.jpg" alt="IMG-BANNER" />
 
-            <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+            <a href="#produtos" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
               <div class="block1-txt-child1 flex-col-l">
                 <span class="block1-name ltext-102 trans-04 p-b-8">
                   Homem
@@ -508,7 +522,7 @@ $conn->close();
           <div class="block1 wrap-pic-w round-box">
             <img src="images/banner-07.jpg" alt="IMG-BANNER" />
 
-            <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+            <a href="#produtos" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
               <div class="block1-txt-child1 flex-col-l">
                 <span class="block1-name ltext-102 trans-04 p-b-8">
                   Relógios
@@ -533,7 +547,7 @@ $conn->close();
           <div class="block1 wrap-pic-w round-box">
             <img src="images/banner-08.jpg" alt="IMG-BANNER" />
 
-            <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+            <a href="#produtos" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
               <div class="block1-txt-child1 flex-col-l">
                 <span class="block1-name ltext-102 trans-04 p-b-8">
                   Bolsas
@@ -558,7 +572,7 @@ $conn->close();
           <div class="block1 wrap-pic-w round-box">
             <img src="images/banner-09.jpg" alt="IMG-BANNER" />
 
-            <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+            <a href="#produtos" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
               <div class="block1-txt-child1 flex-col-l">
                 <span class="block1-name ltext-102 trans-04 p-b-8">
                   Accessórios
@@ -582,7 +596,7 @@ $conn->close();
   </div>
 
   <!-- Product -->
-  <section class="bg0 p-t-23 p-b-130">
+  <section class="bg0 p-t-23 p-b-130" id="produtos">
     <div class="container">
       <div class="p-b-10">
         <h3 class="ltext-103 cl5">Ver produtos</h3>
@@ -636,12 +650,15 @@ $conn->close();
 
                 <div class="block2-txt flex-w flex-t p-t-14">
                   <div class="block2-txt-child1 flex-col-l">
-                    <a href="product-detail.php?nome=<?php echo urlencode($row['nome']); ?>"
-                      class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                    <a href="javascript:void(0);" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6"
+                      data-img="<?php echo $row['imagem']; ?>" onclick="openModal(this)">
                       <?php echo $row['nome']; ?>
                     </a>
 
                     <span class="stext-105 cl3"> R$ <?php echo number_format($row['preco'], 2, ',', '.'); ?></span>
+
+                    <button onclick="adicionarAoCarrinho(<?php echo $row['id']; ?>)" class="btn-add-to-cart">Adicionar ao
+                      carrinho</button>
                   </div>
 
 
@@ -656,6 +673,7 @@ $conn->close();
         ?>
 
         <!-- Modal para ampliar a imagem -->
+
         <div id="imageModal" class="modal" style="display:none;">
           <span class="close-btn" onclick="closeModal()">&times;</span>
           <img class="modal-content" id="imgModal">
