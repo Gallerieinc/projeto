@@ -1,66 +1,60 @@
 <?php
 session_start();
-
 include('conect.php');
 
-
-if (isset($_SESSION['usuario_id'])) {
-	$usuario_id = $_SESSION['usuario_id'];
-
-	// Obter os dados do carrinho
-	$userId = $_SESSION['usuario_id'];
-	$query = "SELECT * FROM carrinho_compra WHERE id_usuario = '$userId'";
-	$result = mysqli_query($conn, $query);
-
-
-
-
-
-
-
-	// Recuperando os produtos do carrinho do banco de dados
-	$query = "SELECT c.id_produto, p.nome, p.preco, p.imagem, c.quantidade
-              FROM carrinho_compra c
-              INNER JOIN produtos p ON c.id_produto = p.id
-              WHERE c.id_usuario = ?";
-	$stmt = $conn->prepare($query);
-	$stmt->bind_param('i', $usuario_id);
-	$stmt->execute();
-	$result = $stmt->get_result();
-
-	// Armazenando os produtos em um array
-	$produtos_carrinho = [];
-	while ($row = $result->fetch_assoc()) {
-		$produtos_carrinho[] = $row;
-	}
-} else {
-	echo "Você precisa estar logado para ver o carrinho.";
+// Verificar se o usuário está logado
+if (!isset($_SESSION['usuario_id'])) {
+	header("Location: login.php");
+	exit;
 }
 
+$usuario_id = $_SESSION['usuario_id'];
 
+// Obter os itens do carrinho do banco de dados
+$query = "SELECT c.id_produto, p.nome, p.preco, p.imagem, c.quantidade
+          FROM carrinho_compra c
+          INNER JOIN produtos p ON c.id_produto = p.id
+          WHERE c.id_usuario = '$usuario_id'";
+$result = mysqli_query($conn, $query);
 
+// Armazenar os produtos em um array
+$produtos_carrinho = [];
+while ($row = mysqli_fetch_assoc($result)) {
+	$produtos_carrinho[] = $row;
+}
 
-
-// Verificar se o carrinho está armazenado na sessão
-$carrinho = isset($_SESSION['carrinho']) ? $_SESSION['carrinho'] : [];
 $total = 0; // Variável para calcular o total do carrinho
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['num-product'])) {
-	foreach ($_POST['num-product'] as $id_produto => $quantidade) {
-		// Atualiza a quantidade do produto no carrinho
-		$update_query = "UPDATE carrinho_compra 
-                         SET quantidade = ? 
-                         WHERE id_produto = ? AND id_usuario = ?";
-		$stmt = $conn->prepare($update_query);
-		$stmt->bind_param('iii', $quantidade, $id_produto, $usuario_id);
-		$stmt->execute();
-	}
-	// Redirecionar ou exibir mensagem de sucesso
-	header('Location: shopping-cart.php');
-	exit();
+foreach ($produtos_carrinho as $produto) {
+	$total += $produto['preco'] * $produto['quantidade'];
 }
+
+// Inserir o pedido na tabela pedidos
+$date = date("Y-m-d H:i:s");
+$status = 'pago'; // Pode ser alterado dependendo do fluxo
+$query_pedido = "INSERT INTO pedidos (id_usuario, status, data_pedido) VALUES ('$usuario_id', '$status', '$date')";
+mysqli_query($conn, $query_pedido);
+
+// Obter o ID do pedido recém-criado
+$id_pedido = mysqli_insert_id($conn);
+
+// Associar os itens do carrinho ao pedido
+foreach ($produtos_carrinho as $item) {
+	$id_produto = $item['id_produto'];
+	$quantidade = $item['quantidade'];
+	$preco = $item['preco'];
+
+	// Inserir os itens no pedido
+	$query_item = "INSERT INTO pedidos_itens (id_pedido, id_produto, quantidade, preco) 
+                   VALUES ('$id_pedido', '$id_produto', '$quantidade', '$preco')";
+	mysqli_query($conn, $query_item);
+}
+
+// Após inserir os dados, redirecionar o usuário para a página de pedidos
+//header("Location: pedido.php");
+//exit;
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -330,11 +324,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['num-product'])) {
 								<span class="mtext-110 cl2">R$ <?php echo number_format($total, 2, ',', '.'); ?></span>
 							</div>
 						</div>
-
 						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
 							id="pedido-carrinho">
-							<a href="pedido.php" style=" color: white;">Finalizar compra</a>
+							<a href="pedido.php" style="color: white;">Finalizar compra</a>
 						</button>
+
 					</div>
 				</div>
 			</div>

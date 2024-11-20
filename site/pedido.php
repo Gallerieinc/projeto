@@ -104,33 +104,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Obter os pedidos do usuário
-$query_pedidos = "SELECT p.id, p.data_pedido, p.status FROM pedidos p 
-                  WHERE p.id_usuario = '$usuario_id' ORDER BY p.data_pedido DESC";
-$result_pedidos = mysqli_query($conn, $query_pedidos);
+$userId = $_SESSION['usuario_id'];
+$query = "SELECT * FROM pedidos WHERE id_usuario = '$userId' ORDER BY data_pedido DESC";
+$result = mysqli_query($conn, $query);
 
-// while ($pedido = mysqli_fetch_assoc($result_pedidos)) {
-//     echo "<h4>Pedido #" . $pedido['id'] . " - " . $pedido['status'] . "</h4>";
-//     echo "<p>Data do pedido: " . date('d/m/Y H:i', strtotime($pedido['data_pedido'])) . "</p>";
 
-//     // Obter os itens do pedido
-//     $query_itens = "SELECT pi.quantidade, pi.preco, p.nome FROM pedidos_itens pi 
-//                     INNER JOIN produtos p ON pi.id_produto = p.id 
-//                     WHERE pi.id_pedido = '" . $pedido['id'] . "'";
-//     $result_itens = mysqli_query($conn, $query_itens);
-
-//     echo "<table class='table'>";
-//     echo "<thead><tr><th>Produto</th><th>Quantidade</th><th>Preço</th></tr></thead><tbody>";
-
-//     while ($item = mysqli_fetch_assoc($result_itens)) {
-//         echo "<tr>";
-//         echo "<td>" . $item['nome'] . "</td>";
-//         echo "<td>" . $item['quantidade'] . "</td>";
-//         echo "<td>" . number_format($item['preco'], 2, ',', '.') . "</td>";
-//         echo "</tr>";
-//     }
-
-//     echo "</tbody></table>";
-// }
 ?>
 
 
@@ -310,12 +288,19 @@ $result_pedidos = mysqli_query($conn, $query_pedidos);
     <section class="bg0 p-t-104 p-b-116">
         <div class="container">
             <div class="flex-w flex-tr container-form">
-                <!-- Formulário de Conta -->
+
                 <!-- Formulário de Conta -->
                 <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
                     <h4 class="mtext-105 cl2 p-b-30">Seus pedidos</h4>
 
-                    <?php if (mysqli_num_rows($result) > 0): ?>
+                    <?php
+                    $query_pedidos = "SELECT p.id, p.data_pedido, p.status 
+                      FROM pedidos p 
+                      WHERE p.id_usuario = '{$_SESSION['usuario_id']}' 
+                      ORDER BY p.data_pedido DESC";
+                    $result_pedidos = mysqli_query($conn, $query_pedidos);
+
+                    if (mysqli_num_rows($result_pedidos) > 0): ?>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -326,12 +311,14 @@ $result_pedidos = mysqli_query($conn, $query_pedidos);
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php while ($pedido = mysqli_fetch_assoc($result)): ?>
+                                <?php while ($pedido = mysqli_fetch_assoc($result_pedidos)): ?>
                                     <tr>
                                         <td><?= $pedido['id'] ?></td>
                                         <td><?= htmlspecialchars($pedido['status']) ?></td>
                                         <td><?= date("d/m/Y H:i", strtotime($pedido['data_pedido'])) ?></td>
-                                        <td><a href="detalhes_pedido.php?id=<?= $pedido['id'] ?>">Ver Detalhes</a></td>
+                                        <td>
+                                            <a href="?id=<?= $pedido['id'] ?>">Ver Detalhes</a>
+                                        </td>
                                     </tr>
                                 <?php endwhile; ?>
                             </tbody>
@@ -339,7 +326,57 @@ $result_pedidos = mysqli_query($conn, $query_pedidos);
                     <?php else: ?>
                         <p>Você ainda não fez nenhum pedido.</p>
                     <?php endif; ?>
+
+                    <?php
+                    // Verificar se o ID do pedido foi passado
+                    if (isset($_GET['id'])):
+                        $id_pedido = $_GET['id'];
+                        $query_pedido = "SELECT * FROM pedidos 
+                        WHERE id = '$id_pedido' AND id_usuario = '{$_SESSION['usuario_id']}'";
+                        $result_pedido = mysqli_query($conn, $query_pedido);
+                        $pedido = mysqli_fetch_assoc($result_pedido);
+
+                        if ($pedido): ?>
+                            <div class="detalhes-pedido m-t-30">
+                                <h5 class="mtext-104 cl2">Detalhes do Pedido #<?= $pedido['id'] ?></h5>
+                                <p>Status: <?= htmlspecialchars($pedido['status']) ?></p>
+                                <p>Data do Pedido: <?= date("d/m/Y H:i", strtotime($pedido['data_pedido'])) ?></p>
+
+                                <h6>Itens do Pedido:</h6>
+                                <?php
+                                $query_itens = "SELECT pi.quantidade, pi.preco, p.nome AS nome_produto 
+                                FROM pedidos_itens pi
+                                INNER JOIN produtos p ON pi.id_produto = p.id 
+                                WHERE pi.id_pedido = '$id_pedido'";
+                                $result_itens = mysqli_query($conn, $query_itens);
+                                ?>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Produto</th>
+                                            <th>Quantidade</th>
+                                            <th>Preço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while ($item = mysqli_fetch_assoc($result_itens)): ?>
+                                            <tr>
+                                                <td><?= htmlspecialchars($item['nome_produto']) ?></td>
+                                                <td><?= $item['quantidade'] ?></td>
+                                                <td>R$ <?= number_format($item['preco'], 2, ',', '.') ?></td>
+                                            </tr>
+                                        <?php endwhile; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <?php else: ?>
+                            <p>Pedido não encontrado.</p>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
+
+
 
                 <!-- Lado Direito: Endereço e Imagem de Perfil -->
                 <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
